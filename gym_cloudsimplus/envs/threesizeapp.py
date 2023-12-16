@@ -74,13 +74,14 @@ class ThreeSizeAppEnv(gym.Env):
         reward = result.getReward()
         done = result.isDone()
         raw_obs = result.getObs()
+        vm_counts = result.getVmCounts()
 
         obs = to_nparray(raw_obs)
         return (
             obs,
             reward,
             done,
-            {}
+            {'vm_counts': vm_counts}
         )
 
     def reset(self):
