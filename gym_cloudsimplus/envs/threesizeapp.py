@@ -74,8 +74,9 @@ class ThreeSizeAppEnv(gym.Env):
         reward = result.getReward()
         done = result.isDone()
         raw_obs = result.getObs()
-        vm_counts = result.getVmCounts()
+        raw_vm_counts = result.getVmCounts()
 
+        vm_counts = list(raw_vm_counts)
         obs = to_nparray(raw_obs)
         return (
             obs,
